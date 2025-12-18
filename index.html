@@ -16,6 +16,7 @@
       width: 100vw;
       height: 100vh;
       overflow: hidden;
+      font-family: Arial, sans-serif;
     }
 
     model-viewer {
@@ -29,10 +30,9 @@
       bottom: 90px;
       width: 100%;
       text-align: center;
-      color: white;
+      color: #ffffff;
       font-size: 16px;
-      font-family: Arial, sans-serif;
-      opacity: 0.85;
+      opacity: 0.9;
     }
 
     #place-button {
@@ -60,14 +60,15 @@
     ar
     ar-modes="webxr scene-viewer"
     camera-controls
-    disable-zoom
     ar-scale="fixed"
     placement="floor"
     interaction-prompt="none"
     shadow-intensity="1"
     exposure="1"
     environment-image="neutral"
-    loading="eager"
+
+    scale="0.15 0.15 0.15"
+    position="0 0.05 0"
   >
   </model-viewer>
 
@@ -92,4 +93,3 @@
 
 </body>
 </html>
-
