@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Animal Shelter AR</title>
 
-  <!-- Model Viewer -->
   <script type="module"
     src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
   </script>
@@ -22,7 +21,7 @@
     model-viewer {
       width: 100%;
       height: 100%;
-      background-color: #000;
+      background: #000;
     }
 
     #hint {
@@ -30,19 +29,19 @@
       bottom: 90px;
       width: 100%;
       text-align: center;
-      color: #ffffff;
+      color: white;
       font-size: 16px;
       opacity: 0.9;
     }
 
-    #place-button {
+    #ar-btn {
       position: absolute;
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
       padding: 14px 28px;
-      background: #ffffff;
-      color: #000;
+      background: white;
+      color: black;
       font-size: 16px;
       font-weight: bold;
       border-radius: 14px;
@@ -57,38 +56,40 @@
   <model-viewer
     id="viewer"
     src="animal_shelter.glb"
+
     ar
     ar-modes="webxr scene-viewer"
-    camera-controls
-    ar-scale="fixed"
     placement="floor"
+    ar-scale="fixed"
+
+    camera-controls="false"
     interaction-prompt="none"
+
+    scale="0.03 0.03 0.03"
+    position="0 0.08 0"
+
     shadow-intensity="1"
     exposure="1"
     environment-image="neutral"
-
-    scale="0.15 0.15 0.15"
-    position="0 0.05 0"
   >
   </model-viewer>
 
   <div id="hint">
-    Scan lantai lalu tekan tombol Put AR
+    Scan lantai lalu tekan Put AR
   </div>
 
-  <button id="place-button">
+  <button id="ar-btn">
     Put AR
   </button>
 
   <script>
     const viewer = document.getElementById("viewer");
-    const button = document.getElementById("place-button");
     const hint = document.getElementById("hint");
 
-    button.addEventListener("click", () => {
+    document.getElementById("ar-btn").onclick = () => {
       viewer.activateAR();
       hint.innerText = "Tap lantai untuk menaruh model";
-    });
+    };
   </script>
 
 </body>
